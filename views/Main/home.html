@@ -1,0 +1,80 @@
+{% extends "_global/index.html" %}
+
+{% block main %}
+<!--
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="form-group mt-3">
+        <select class="form-control" id="select_publisher">
+            <option> Publisher </option>
+            {% for publisher in publishers %}
+            <option value="{{ publisher.name }}">
+                {{ publisher.name }}
+                </br>
+            </option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="form-group mt-3">
+        <select class="form-control" id="select_author">
+            <option> Author </option>
+            {% for author in authors %}
+            <option value="{{ author.first_name }} {{ author.last_name }}">
+                {{ author.first_name }} {{ author.last_name }}
+                </br>
+            </option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="form-group mt-3">
+        <select class="form-control" id="select_genre">
+            <option> Genre </option>
+            {% for genre in genres %}
+            <option value="{{ genre.name }}">
+                {{ genre.name }}
+                </br>
+            </option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="form-group mt-3">
+        <select class="form-control" id="select_year">
+            <option> Year </option>
+            {% for book in books %}
+            <option value="{{ book.publishing_year }}">
+                {{ book.publishing_year }}
+                </br>
+            </option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-secondary">Filter</button>
+</nav>
+-->
+<p></p>
+
+<div class="row">
+    {% for book in books %}
+    {% if book.is_deleted == 0 %}
+    {% if book.is_hidden == 0 %}
+    <a href="{{ BASE }}book/{{ book.book_id }}" class="col-12 col-sm-6 col-md-4 col-lg-3 text-center text-body">
+        {% if book.front_page_image is null %}
+        <img src="{{ BASE }}assets/img/cover/default.jpg" alt="{{book.name|escape}} " height="260" width="180">
+        {% else %}
+        <img src="{{ BASE }}assets/img/cover/{{book.book_id}}.jpg" alt="{{book.name|escape}} " height="260" width="180">
+        {% endif %}
+        <p>{{ book.name|escape }}</p>
+    </a>
+    {% endif %}
+    {% endif %}
+    {% endfor %}
+</div>
+
+{% endblock %}
+
+{% block title %}
+{{ book.name|escape }}
+{% endblock %}

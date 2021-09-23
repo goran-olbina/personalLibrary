@@ -1,0 +1,47 @@
+{% extends "UserDashboard/index.html" %}
+
+{% block main %}
+
+<div>
+    <button type="button" class="btn btn-secondary col-4 col-md-3 col-lg-2 bg-light text-body"
+        onclick="go_to_authors()">Return to authors</button>
+    <p></p>
+
+    <form class="author-form" method="POST">
+        <div class="row">
+            <div class="form-group col-12 col-sm-5 col-lg-2 offset-md-1">
+                <label for="first_name">First name: </label>
+                <input class="form-control" type="text" id="first_name" name='first_name' required
+                    pattern=".*[^\s]{1,}.*">
+            </div>
+            <div class="form-group col-12 col-sm-5 col-lg-2 offset-md-1">
+                <label for="last_name">Last name: </label>
+                <input class="form-control" type="text" id="last_name" name='last_name'>
+            </div>
+            <div class="form-group col-12 col-sm-5 col-lg-2 offset-md-1">
+                <label for="birth_year">Birth year: </label>
+                <input class="form-control" type="number" id="birth_year" name='birth_year'>
+            </div>
+            <div class="form-group col-12 col-sm-5 col-lg-2 offset-md-1">
+                <label for="death_year">Death year: </label>
+                <input class="form-control" type="number" id="death_year" name='death_year'>
+            </div>
+            <div class="form-group col-12 col-sm-11 offset-sm-1">
+                <label for="info">Info: </label>
+                <textarea class="form-control" type="text" id="info" name='info'></textarea>
+            </div>
+        </div>
+
+        <div>
+            <button type="submit"
+                class="btn btn-secondary col-12 col-md-4 offset-md-8 col-lg-3 offset-lg-9 bg-light text-body">
+                Add author</button>
+        </div>
+    </form>
+</div>
+<script>
+    function go_to_authors() {
+        location.href = "{{ BASE }}user/authors";
+    }
+</script>
+{% endblock %}

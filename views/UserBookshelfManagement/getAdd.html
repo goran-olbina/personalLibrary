@@ -1,0 +1,35 @@
+{% extends "UserDashboard/index.html" %}
+
+{% block main %}
+
+<div>
+    <button type="button" class="btn btn-secondary col-4 col-md-3 col-lg-2 bg-light text-body"
+        onclick="go_to_bookshelves()">Return to bookshelves</button>
+    <p></p>
+
+    <form class="bookshelf-form" method="POST">
+        <div>
+            <label for="room_id">Room: </label>
+            <select class="form-control" id="room_id" name="room_id">
+                {% for room in rooms %}
+                <option value="{{room.room_id}}">
+                    {{room.location}}
+                </option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <p></p>
+        <div>
+            <button type="submit"
+                class="btn btn-secondary col-12 col-md-4 offset-md-8 col-lg-3 offset-lg-9 bg-light text-body">
+                Add bookshelf</button>
+        </div>
+    </form>
+</div>
+<script>
+    function go_to_bookshelves() {
+        location.href = "{{ BASE }}user/bookshelves";
+    }
+</script>
+{% endblock %}

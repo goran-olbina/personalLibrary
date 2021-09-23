@@ -1,0 +1,75 @@
+{% extends "UserDashboard/index.html" %}
+
+{% block main %}
+
+<div class="row">
+    <div class="col-md-12 col-lg-4 text-center">
+        {% if book.front_page_image is null %}
+        <img src="{{ BASE }}assets/img/cover/default.jpg" alt="{{book.name|escape}} " height="380" width="270">
+        {% else %}
+        <img src="{{ BASE }}assets/img/cover/{{book.book_id}}.jpg" alt="{{book.name|escape}} " height="380" width="270">
+        {% endif %}
+    </div>
+
+    <div class="col-md-12 col-lg-8">
+        <div class="row">
+            <h3 class="col-10">{{ book.name|escape }}</h3>
+            <button type="button" class="btn btn-secondary col-2" onclick="go_to_edit()">Edit</button>
+        </div>
+        <p></p>
+        <h4>Original name: {{ book.original_name⁯ }}</h4>
+        <div class="row">
+            <p class="col-sm-12 col-md-5">Author(s):
+                {% for authors in authorName %}
+                </br>-
+                <a href="{{ BASE }}user/author/{{ authors.author_id }}">
+                    {{ authors.first_name }}
+                    {{ authors.last_name }}
+                </a>
+                {% endfor %}
+            </p>
+
+            <p class="col-sm-12 col-md-5">Genre(s):
+                {% for name in bookName %}
+                </br>-
+                <a href="{{ BASE }}user/genre/{{ name.genre_id }}">
+                    {{ name.name }}
+                </a>
+                {% endfor %}
+            </p>
+
+
+        </div>
+
+        <p>Publisher: <a href="{{ BASE }}user/publisher/{{ book.publisher_id }}">{{ publisher.name }}</a></br></p>
+        <p>Publishing year: {{ book.publishing_year }}</p>
+        <p>Nr of pages: {{ book.pages }}</p>
+        <p>ISBN: {{ book.isbn }}</p>
+        <p>Book language: {{ book.language|escape }}</p>
+
+
+
+        <p>
+            Last book placement: <a href="{{ BASE }}user/bookPlacement/book/{{ book.book_id }}">
+                {{bookPlacement.placed_at}}</a></br>
+        </p>
+    </div>
+
+    <div>
+        <p>Description:</p>
+        <p> {{ book.description|escape }}</p>
+    </div>
+</div>
+
+<script>
+    function go_to_edit() {
+        location.href = "{{ BASE }}user/books/edit/{{ book.book_id }}";
+    }
+</script>
+
+
+{% endblock %}
+
+{% block title %}
+{{ book.name|escape }}
+{% endblock %}

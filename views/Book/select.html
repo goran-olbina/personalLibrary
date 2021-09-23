@@ -1,0 +1,59 @@
+{% extends "_global/index.html" %}
+
+{% block main %}
+
+<div class="row">
+    <div class="col-md-12 col-lg-4 text-center">
+        {% if book.front_page_image is null %}
+        <img src="{{ BASE }}assets/img/cover/default.jpg" alt="{{book.name|escape}} " height="380" width="270">
+        {% else %}
+        <img src="{{ BASE }}assets/img/cover/{{book.book_id}}.jpg" alt="{{book.name|escape}} " height="380" width="270">
+        {% endif %}
+    </div>
+
+    <div class="col-md-12 col-lg-8">
+        <h3> {{ book.name|escape }} </h3>
+        <h4>Original name: {{ book.original_name⁯ }} </h4>
+        <div class="row">
+            <p class="col-sm-12 col-md-5">Author(s):
+
+                {% for authors in authorName %}
+                </br>-
+                {{ authors.first_name }}
+                {{ authors.last_name }}
+
+                {% endfor %}
+            </p>
+
+            <p class="col-sm-12 col-md-5">Genre(s):
+                {% for name in bookName %}
+                </br>-
+                {{ name.name }}
+
+                {% endfor %}
+            </p>
+        </div>
+        <p>Publisher: {{ publisher.name }}</p>
+        <p>Publishing year: {{ book.publishing_year }}</p>
+        <p>Nr of pages: {{ book.pages }}</p>
+        <p>ISBN: {{ book.isbn }}</p>
+        <p>Book language: {{ book.language|escape }}</p>
+
+
+    </div>
+
+    <div>
+        <p></p>
+        <p>Description:</p>
+        <p> {{ book.description|escape }}</p>
+    </div>
+</div>
+
+
+
+
+{% endblock %}
+
+{% block title %}
+{{ book.name|escape }}
+{% endblock %}

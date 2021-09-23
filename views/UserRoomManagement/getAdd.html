@@ -1,0 +1,29 @@
+{% extends "UserDashboard/index.html" %}
+
+{% block main %}
+
+<div>
+    <button type="button" class="btn btn-secondary col-4 col-md-3 col-lg-2 bg-light text-body"
+        onclick="go_to_rooms()">Return to rooms</button>
+    <p></p>
+
+    <form class="room-form" method="POST">
+        <div>
+            <label for="location">Location: </label>
+            <input class="form-control" type="text" id="location" name='location' required pattern=".*[^\s]{1,}.*">
+        </div>
+        <p></p>
+        <div>
+            <button type="submit"
+                class="btn btn-secondary col-12 col-md-4 offset-md-8 col-lg-3 offset-lg-9 bg-light text-body">
+                Add room</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    function go_to_rooms() {
+        location.href = "{{ BASE }}user/rooms";
+    }
+</script>
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends "UserDashboard/index.html" %}
+
+{% block main %}
+
+<div>
+    <button type="button" class="btn btn-secondary col-4 col-md-3 col-lg-2 bg-light text-body"
+        onclick="go_to_genres()">Return to genres</button>
+    <button type="button" class="btn btn-secondary col-4 col-md-3 col-lg-2 bg-light text-body"
+        onclick="go_to_add_genre()">Add genres</button>
+    <p></p>
+
+    <form class="genre-form" method="POST">
+        <div class="row">
+            <div class="form-group col-12 col-md-3">
+                <label for="name">Name: </label>
+                <input class="form-control" type="text" id="name" name='name' value="{{genre.name|escape}}"
+                    pattern=".*[^\s]{1,}.*">
+            </div>
+
+            <div class="form-group col-12 col-md-9">
+                <label for="description">Description: </label>
+                <textarea class="form-control" type="text" id="description" name='description' value="">
+                    {{genre.description|escape}}
+                </textarea>
+            </div>
+
+            <div class="form-group col-12 col-sm-6 col-md-2">
+                <label for="is_deleted">Delete: </label>
+                <input class="form-control" type="text" id="is_deleted" name='is_deleted'
+                    value="{{genre.is_deleted|escape}}">
+            </div>
+        </div>
+
+        <div>
+            <button type="submit"
+                class="btn btn-secondary col-12 col-md-4 offset-md-8 col-lg-3 offset-lg-9 bg-light text-body">
+                Edit book</button>
+        </div>
+    </form>
+</div>
+<script>
+    function go_to_genres() {
+        location.href = "{{ BASE }}user/genres";
+    }
+
+    function go_to_add_genre() {
+        location.href = "{{ BASE }}user/genres/add";
+    }
+</script>
+{% endblock %}

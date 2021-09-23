@@ -1,0 +1,103 @@
+{% extends "UserDashboard/index.html" %}
+
+{% block main %}
+
+<div>
+    <button type="button" class="btn btn-secondary col-4 col-md-3 col-lg-2 bg-light text-body"
+        onclick="go_to_books()">Return to books</button>
+    <button type="button" class="btn btn-secondary col-4 col-md-3 col-lg-2 bg-light text-body"
+        onclick="go_to_add_book()">Add book</button>
+    <p></p>
+
+    <form class="book-form" method="POST" enctype="multipart/form-data">
+        <div class="row">
+
+            <div class="form-group col-12 col-sm-6 col-md-4 offset-md-1">
+                <label for="name">Name: </label>
+                <input class="form-control" type="text" id="name" name='name' value="{{book.name|escape}}"
+                    pattern="[^\s]{1,}">
+            </div>
+
+            <div class="form-group col-12 col-sm-6 col-md-4 offset-md-2">
+                <label for="original_name⁯">Original name: </label>
+                <input class="form-control" type="text" id="original_name⁯" name='original_name⁯'
+                    value="{{book.original_name⁯|escape}}">
+            </div>
+
+            <div class="form-group col-12">
+                <label class="" for="image">Upload cover: </label>
+                <input class="" type="file" id="image" name='image' accept="image/jpeg">
+            </div>
+
+            <div class="form-group col-12 col-sm-6 col-md-2">
+                <label for="publisher_id">Publisher: </label>
+                <select class="form-control" id="publisher_id" name="publisher_id" value="{{book.publisher_id|escape}}">
+                    {% for publisher in publishers %}
+                    <option value="{{publisher.publisher_id}}">
+                        {{publisher.name}}
+                    </option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="form-group col-12 col-sm-6 col-md-2 ">
+                <label for="publishing_year">Publishing year: </label>
+                <input class="form-control" type="text" id="publishing_year" name='publishing_year'
+                    value="{{book.publishing_year|escape}}">
+            </div>
+
+            <div class="form-group col-12 col-sm-6 col-md-2">
+                <label for="pages">Pages: </label>
+                <input class="form-control" type="text" id="pages" name='pages' value="{{book.pages|escape}}">
+            </div>
+
+            <div class="form-group col-12 col-sm-6 col-md-2">
+                <label for="isbn">ISBN: </label>
+                <input class="form-control" type="text" id="isbn" name='isbn' value="{{book.isbn|escape}}">
+            </div>
+
+            <div class="form-group col-12 col-sm-6 col-md-2">
+                <label for="language">Language: </label>
+                <input class="form-control" type="text" id="language" name='language' value="{{book.language|escape}}"
+                    pattern="[.*[^\s]{1,}.*">
+            </div>
+
+            <div class="form-group col-12 col-sm-6 col-md-2">
+                <label for="is_hidden">Is hidden: </label>
+                <input class="form-control" type="text" id="is_hidden" name='is_hidden'
+                    value="{{book.is_hidden|escape}}">
+            </div>
+
+            <div class="form-group col-12 col-sm-6 col-md-2">
+                <label for="is_deleted">Delete: </label>
+                <input class="form-control" type="text" id="is_deleted" name='is_deleted'
+                    value="{{book.is_deleted|escape}}">
+            </div>
+
+            <div class="form-group col-12">
+                <label for=" description">Description: </label>
+                <textarea class="form-control" type="text" id="description" name='description'>
+                    {{book.description|escape}}
+                </textarea>
+            </div>
+        </div>
+
+        <div>
+            <button type="submit"
+                class="btn btn-secondary col-12 col-md-4 offset-md-8 col-lg-3 offset-lg-9 bg-light text-body">
+                Edit book</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    function go_to_books() {
+        location.href = "{{ BASE }}user/books";
+    }
+
+    function go_to_add_book() {
+        location.href = "{{ BASE }}user/books/add";
+    }
+</script>
+
+{% endblock %}

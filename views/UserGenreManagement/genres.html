@@ -1,0 +1,28 @@
+{% extends "UserDashboard/index.html" %}
+
+{% block main %}
+
+<div class="row">
+
+    <div class="card col-12 col-sm-6 col-md-4 col-lg-3 text-center publishers">
+        <div class="card-body">
+            <a href="{{ BASE }}user/genres/add" class="text-body card-title">Add new genre</a>
+        </div>
+    </div>
+
+
+    {% for genre in genres %}
+    {% if genre.is_deleted == 0 %}
+    <div class="card col-12 col-sm-6 col-md-4 col-lg-3 text-center publishers">
+        <div class="card-body">
+            <a href="{{ BASE }}user/genres/edit/{{ genre.genre_id }}" class="text-body card-title">
+                {{genre.name}}
+            </a>
+        </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+
+</div>
+
+{% endblock %}

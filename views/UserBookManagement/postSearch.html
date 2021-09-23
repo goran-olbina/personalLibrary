@@ -1,0 +1,24 @@
+{% extends "UserDashboard/index.html" %}
+
+{% block main %}
+
+<div class="row">
+    {% for book in books %}
+    {% if book.is_deleted == 0 %}
+    <a href="{{ BASE }}book/{{ book.book_id }}" class="col-12 col-sm-6 col-md-4 col-lg-3 text-center text-body">
+        {% if book.front_page_image is null %}
+        <img src="{{ BASE }}assets/img/cover/default.jpg" alt="{{book.name|escape}} " height="260" width="180">
+        {% else %}
+        <img src="{{ BASE }}assets/img/cover/{{book.book_id}}.jpg" alt="{{book.name|escape}} " height="260" width="180">
+        {% endif %}
+        <p>{{ book.name|escape }}</p>
+    </a>
+    {% endif %}
+    {% endfor %}
+</div>
+
+{% endblock %}
+
+{% block title %}
+Search results
+{% endblock %}

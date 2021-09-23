@@ -1,0 +1,19 @@
+{% extends "_global/index.html" %}
+
+{% block main %}
+
+<h1>Placement times for {{ books.name|escape }}</h1>
+<ul>
+    {% for book in bookPlacement %}
+    <li><a href="{{ BASE }}book/{{ book.book_id }}">
+            {{ books.name|escape }}
+            {{ book.placed_at }}
+        </a>
+        {% endfor %}
+</ul>
+
+{% endblock %}
+
+{% block title %}
+{{ publisher.name|escape }}
+{% endblock %}

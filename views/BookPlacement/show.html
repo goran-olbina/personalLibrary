@@ -1,0 +1,22 @@
+{% extends "_global/index.html" %}
+
+{% block main %}
+
+<ul>
+    {% for book in bookPlacement %}
+
+    <li>Book ID: {{ book.book_id }}
+        Bookshelf ID: {{ book.bookshelf_id }}
+        <a href="{{ BASE }}book/{{ book.book_id }}">
+
+            Placed at: {{ book.placed_at }}
+        </a>
+        {% endfor %}
+</ul>
+
+
+{% endblock %}
+
+{% block title %}
+{{ book.name|escape }}
+{% endblock %}

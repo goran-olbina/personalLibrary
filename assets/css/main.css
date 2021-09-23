@@ -1,0 +1,264 @@
+.search-box {
+    margin-top: 5px;
+}
+
+.filter-button {
+    margin-top: 1000px;
+}
+
+.main-meni-nav>a:hover {
+    background: rgba(220, 220, 220, 0.3)
+}
+
+.publishers {
+    text-decoration: none;
+    padding: 10px 0 15px 0;
+    margin: 0 0 0 0;
+}
+
+
+/* * {
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+}
+
+body {
+    margin: 0 auto;
+    width: 900px;
+}
+
+.site-header {
+    display: grid;
+    grid-template-areas: "banner search"
+        "menu   menu"
+}
+
+.banners {
+    grid-area: banner;
+    text-align: center;
+    margin: 10px auto;
+}
+
+.search-box {
+    grid-area: search;
+    text-align: right;
+}
+
+#main-menu {
+    grid-area: menu;
+    margin: 20px 0px;
+}
+
+#main-menu>ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    align-content: stretch;
+}
+
+#main-menu>ul>li {
+    flex-grow: 1;
+    text-align: center;
+}
+
+#main-menu>ul>li>a {
+    text-decoration: none;
+    display: block;
+    padding: 10px 0px;
+    color: #000000;
+}
+
+#main-menu>ul>li:hover {
+    background: rgba(200, 200, 200, 0.3)
+}
+
+.filters {
+    display: flex;
+    flex-direction: row;
+    align-content: stretch;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: 70px;
+    border: 1px solid #cccccc;
+    background: rgba(240, 240, 240, 0.3);
+    padding: 21px 0 0 20px;
+}
+
+.publisher-dropdown {
+    width: 25%;
+    padding-left: 55px;
+}
+
+.author-dropdown {
+    width: 14.5%;
+    padding-left: 55px;
+}
+
+.genre-dropdown {
+    width: 17%;
+    padding-left: 55px;
+}
+
+.year-dropdown {
+    width: 9%;
+    padding-left: 55px;
+}
+
+.filter-button {
+    width: 15%;
+    margin-left: 55px;
+}
+
+.publisher-dropdown-select,
+.author-dropdown-select,
+.genre-dropdown-select,
+.year-dropdown-select,
+.filter-button {
+    height: 25px;
+}
+
+.books {
+    display: flex;
+    flex-direction: row;
+    align-content: stretch;
+    flex-wrap: wrap;
+}
+
+.book {
+    width: 22.5%;
+    height: 333px;
+    text-align: center;
+    padding: 14px 0 20px 0;
+    margin: 20px 11px 2px 11px;
+    border: 1px solid #cccccc;
+    background: rgba(200, 200, 200, 0.3);
+    text-decoration: none;
+    color: #000000;
+}
+
+.book:hover {
+    border: 1px solid #000000;
+    background: rgba(200, 200, 200, 0.6)
+}
+
+.book>p {
+    padding: 10px 0 0 0;
+    font-size: 20px;
+}
+
+.site-footer {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.book-info {
+    display: grid;
+    grid-template-areas:
+        "image       info"
+        "description description"
+}
+
+.book-image {
+    grid-area: image;
+    width: 250px;
+    padding: 20px 0 0 15px;
+}
+
+.book-info-1 {
+    grid-area: info;
+    text-align: left;
+    padding: 15px 0 0 0;
+    width: 650px;
+}
+
+.book-info-1-author,
+.book-info-1-genre {
+    padding: 0 0 0 10px;
+}
+
+.book-info-1>a {
+    text-decoration: none;
+}
+
+.book-info-1>p {
+    padding: 5px 0 0 0;
+}
+
+.book-info-1>p>a {
+    text-decoration: none;
+}
+
+.book-description {
+    grid-area: description;
+    padding: 20px 15px 0 15px;
+}
+
+.book-description-1 {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.publishers,
+.genres,
+.authors,
+.bookshelves {
+    display: flex;
+    flex-direction: row;
+    align-content: stretch;
+    flex-wrap: wrap;
+    padding: 20px 0 0 0;
+}
+
+.publisher,
+.genre,
+.author,
+.bookshelf {
+    width: 31%;
+    height: 30px;
+    text-align: center;
+    padding: 20px 0 40px 0;
+    margin: 0 10px 20px 10px;
+    border: 1px solid #cccccc;
+    background: rgba(200, 200, 200, 0.3);
+    text-decoration: none;
+    color: #000000;
+}
+
+.publisher:hover,
+.genre:hover,
+.author:hover,
+.bookshelf:hover {
+    border: 1px solid #000000;
+    background: rgba(200, 200, 200, 0.6)
+}
+
+.rooms {
+    display: flex;
+    flex-direction: row;
+    align-content: stretch;
+    flex-wrap: wrap;
+    padding: 20px 0 0 0;
+}
+
+.room {
+    width: 47%;
+    height: 30px;
+    text-align: center;
+    padding: 20px 0 40px 0;
+    margin: 0 13px 26px 13px;
+    border: 1px solid #cccccc;
+    background: rgba(200, 200, 200, 0.3);
+    text-decoration: none;
+    color: #000000;
+}
+
+.author:hover {
+    border: 1px solid #000000;
+    background: rgba(200, 200, 200, 0.6)
+}
+
+*/

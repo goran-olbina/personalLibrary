@@ -1,0 +1,28 @@
+{% extends "UserDashboard/index.html" %}
+
+{% block main %}
+
+<div class="row">
+
+    <div class="card col-12 col-sm-6 col-md-4 col-lg-3 text-center publishers">
+        <div class="card-body">
+            <a href="{{ BASE }}user/publishers/add" class="text-body card-title">Add new publisher</a>
+        </div>
+    </div>
+
+
+    {% for publisher in publishers %}
+    {% if publisher.is_deleted == 0 %}
+    <div class="card col-12 col-sm-6 col-md-4 col-lg-3 text-center publishers">
+        <div class="card-body">
+            <a href="{{ BASE }}user/publishers/edit/{{ publisher.publisher_id }}" class="text-body card-title">
+                {{publisher.name}}
+            </a>
+        </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+
+</div>
+
+{% endblock %}

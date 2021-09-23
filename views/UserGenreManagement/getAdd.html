@@ -1,0 +1,34 @@
+{% extends "UserDashboard/index.html" %}
+
+{% block main %}
+
+<div>
+    <button type="button" class="btn btn-secondary col-4 col-md-3 col-lg-2 bg-light text-body"
+        onclick="go_to_genres()">Return to genres</button>
+    <p></p>
+
+    <form class="genre-form" method="POST">
+        <div class="row">
+            <div class="form-group col-12 col-md-3">
+                <label for="name">Name: </label>
+                <input class="form-control" type="text" id="name" name='name' required pattern=".*[^\s]{1,}.*">
+            </div>
+            <div class="form-group col-12 col-md-9">
+                <label for=" description">Description: </label>
+                <textarea class="form-control" type="text" id="description" name='description'></textarea>
+            </div>
+        </div>
+
+        <div>
+            <button type="submit"
+                class="btn btn-secondary col-12 col-md-4 offset-md-8 col-lg-3 offset-lg-9 bg-light text-body">
+                Add genre</button>
+        </div>
+    </form>
+</div>
+<script>
+    function go_to_genres() {
+        location.href = "{{ BASE }}user/genres";
+    }
+</script>
+{% endblock %}

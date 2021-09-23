@@ -1,0 +1,28 @@
+{% extends "UserDashboard/index.html" %}
+
+{% block main %}
+
+<div class="row">
+
+    <div class="card col-12 col-sm-6 col-md-4 col-lg-3 text-center publishers">
+        <div class="card-body">
+            <a href="{{ BASE }}user/rooms/add" class="text-body card-title">Add new room</a>
+        </div>
+    </div>
+
+
+    {% for room in rooms %}
+    {% if room.is_deleted == 0 %}
+    <div class="card col-12 col-sm-6 col-md-4 col-lg-3 text-center publishers">
+        <div class="card-body">
+            <a href="{{ BASE }}user/rooms/edit/{{ room.room_id }}" class="text-body card-title">
+                {{room.location}}
+            </a>
+        </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+
+</div>
+
+{% endblock %}

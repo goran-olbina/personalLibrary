@@ -1,0 +1,28 @@
+{% extends "UserDashboard/index.html" %}
+
+{% block main %}
+
+<div class="bookshelves">
+    <div class="row">
+        <div class="card col-12 col-sm-6 col-md-4 col-lg-3 text-center publishers">
+            <div class="card-body">
+                <a href="{{ BASE }}user/bookshelves/add" class="bookshelf">Add new bookshelf</a>
+            </div>
+        </div>
+
+
+        {% for bookshelf in bookshelves %}
+        {% if bookshelf.is_deleted == 0 %}
+        <div class="card col-12 col-sm-6 col-md-2 col-lg-1 text-center publishers">
+            <div class="card-body">
+                <a href="{{ BASE }}user/bookshelves/edit/{{ bookshelf.bookshelf_id }}" class="bookshelf">
+                    {{bookshelf.bookshelf_id}}
+                </a>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
